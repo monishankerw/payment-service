@@ -1,0 +1,529 @@
+# Docker Interview Topics & Questions — 0 to 5 Years
+
+For your **5+ year Java/Spring Boot/Microservices** profile, focus on Docker from basic container concepts to production deployment, networking, security, and Kubernetes integration.
+
+---
+
+# 🟢 0–1 Year — Docker Fundamentals
+
+### Topics
+
+* What is Docker?
+* Containerization
+* Docker vs Virtual Machine
+* Docker Engine
+* Docker CLI
+* Docker Image
+* Docker Container
+* Docker Registry
+* Docker Hub
+* Dockerfile
+* Docker Compose
+* Container lifecycle
+
+### Questions
+
+1. What is Docker?
+2. Why do we use Docker?
+3. What is containerization?
+4. Docker vs Virtual Machine?
+5. What is a Docker Image?
+6. What is a Docker Container?
+7. Image vs Container?
+8. What is Docker Engine?
+9. What is Docker Hub?
+10. What is a Docker Registry?
+11. What is a Dockerfile?
+12. What is Docker Compose?
+13. What happens when you run `docker run`?
+
+---
+
+# 🟢 0–1 Year — Important Docker Commands
+
+### Topics
+
+```bash
+docker pull
+docker images
+docker build
+docker run
+docker ps
+docker ps -a
+docker stop
+docker start
+docker restart
+docker rm
+docker rmi
+docker logs
+docker exec
+docker inspect
+docker cp
+```
+
+### Questions
+
+14. How do you list Docker images?
+15. How do you list running containers?
+16. How do you stop a container?
+17. How do you remove a container?
+18. How do you remove an image?
+19. How do you view container logs?
+20. How do you enter a running container?
+21. How do you copy files from a container?
+22. How do you inspect a container?
+23. How do you expose a container port?
+
+---
+
+# 🟢 1–2 Years — Dockerfile
+
+### Topics
+
+* `FROM`
+* `WORKDIR`
+* `COPY`
+* `ADD`
+* `RUN`
+* `CMD`
+* `ENTRYPOINT`
+* `EXPOSE`
+* `ENV`
+* `ARG`
+* `USER`
+* `.dockerignore`
+* Docker layers
+* Image caching
+
+### Questions
+
+24. What is `FROM`?
+25. `COPY` vs `ADD`?
+26. `RUN` vs `CMD`?
+27. `CMD` vs `ENTRYPOINT`?
+28. What is `WORKDIR`?
+29. What is `EXPOSE`?
+30. `ARG` vs `ENV`?
+31. Why use `.dockerignore`?
+32. What are Docker image layers?
+33. How does Docker cache layers?
+34. How do you reduce Docker image size?
+
+### Spring Boot Example
+
+```dockerfile
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+
+COPY target/app.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+---
+
+# 🟡 1–2 Years — Docker + Spring Boot
+
+### Topics
+
+* Package Spring Boot JAR
+* Dockerfile
+* Port mapping
+* Environment variables
+* Profiles
+* Configuration
+* Logging
+* Health checks
+
+### Questions
+
+35. How do you Dockerize a Spring Boot application?
+36. How do you expose port 8080?
+37. How do you pass Spring Boot configuration to a container?
+38. How do you activate `application-prod.yml`?
+39. How do you pass database credentials?
+40. How do you connect Spring Boot container to MySQL?
+41. How do you view Spring Boot logs?
+42. How do you restart a failed Spring Boot container?
+43. How do you configure a Docker health check?
+
+---
+
+# 🟡 2–3 Years — Docker Networking
+
+### Topics
+
+* Bridge network
+* Host network
+* None network
+* Custom networks
+* Container-to-container communication
+* Port mapping
+* DNS
+
+### Questions
+
+44. What is Docker networking?
+45. What is the default bridge network?
+46. Container port vs host port?
+47. How do two containers communicate?
+48. Why should you use a custom Docker network?
+49. Can containers communicate without exposing ports?
+50. How does Docker DNS work?
+51. Bridge vs Host networking?
+
+### Example
+
+```text
+Spring Boot Container
+        |
+        | 8080
+        ↓
+Docker Network
+        |
+        ↓
+MySQL Container
+        |
+       3306
+```
+
+Inside the Docker network, your application can use the **container/service name** rather than `localhost`.
+
+---
+
+# 🟡 2–3 Years — Docker Volumes
+
+### Topics
+
+* Container filesystem
+* Volume
+* Bind Mount
+* Named Volume
+* Persistent data
+* Backup
+
+### Questions
+
+52. What happens to container data when the container is deleted?
+53. What is a Docker Volume?
+54. Volume vs Bind Mount?
+55. Why do databases need persistent volumes?
+56. How do you persist MySQL data?
+57. How do you back up Docker volumes?
+
+---
+
+# 🟠 2–3 Years — Docker Compose
+
+### Topics
+
+* `docker-compose.yml`
+* Services
+* Networks
+* Volumes
+* Environment variables
+* Dependencies
+* Health checks
+* Multi-container applications
+
+### Questions
+
+58. What is Docker Compose?
+59. Why use Docker Compose?
+60. How do you run Spring Boot + MySQL together?
+61. How do services communicate in Compose?
+62. What is `depends_on`?
+63. How do you configure environment variables?
+64. How do you persist database data?
+65. How do you start/stop all services?
+
+### Example Architecture
+
+```text
+             Docker Compose
+                  |
+       +----------+----------+
+       |                     |
+ Spring Boot              MySQL
+ Container                Container
+       |
+     Redis
+ Container
+       |
+     Kafka
+ Container
+```
+
+---
+
+# 🔴 3–4 Years — Docker for Microservices
+
+### Topics
+
+* One container per service
+* Microservice images
+* Docker Compose
+* Service discovery
+* Networking
+* Configuration
+* Logging
+* Health checks
+* Container restart
+* Scaling
+* Registry
+
+### Questions
+
+66. How do you Dockerize Microservices?
+67. Should every Microservice have its own container?
+68. How do containers communicate?
+69. How do you manage configuration?
+70. How do you manage secrets?
+71. How do you scale containers?
+72. How do you handle container failure?
+73. How do you push images to AWS ECR?
+74. Docker vs Kubernetes?
+75. Why isn't Docker alone enough for large-scale orchestration?
+
+---
+
+# 🔴 3–4 Years — Docker Optimization
+
+### Topics
+
+* Multi-stage builds
+* Smaller base images
+* Layer caching
+* `.dockerignore`
+* JRE vs JDK
+* Alpine/distroless concepts
+* Non-root user
+* Image scanning
+
+### Questions
+
+76. How do you reduce Docker image size?
+77. What is a multi-stage build?
+78. Why use JRE instead of JDK in production?
+79. How does Docker layer caching work?
+80. Why should dependencies be copied before source code?
+81. Why should containers not run as root?
+82. How do you scan Docker images for vulnerabilities?
+
+### Multi-stage Java Build
+
+```dockerfile
+FROM maven:3.9-eclipse-temurin-17 AS build
+
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+---
+
+# 🔴 4–5 Years — Production Docker
+
+### Topics
+
+* Container resource limits
+* CPU
+* Memory
+* Health checks
+* Restart policies
+* Logging
+* Monitoring
+* Image security
+* Secrets
+* Registry
+* CI/CD
+* Blue-Green deployment
+* Canary deployment
+* Docker + Kubernetes
+* Docker + AWS ECS
+
+### Questions
+
+83. Container is consuming 100% CPU. How do you investigate?
+84. Container is using all available memory. What do you check?
+85. Container keeps restarting. What do you check?
+86. How do you check why a container stopped?
+87. How do you configure restart policies?
+88. How do you monitor containers?
+89. How do you manage production secrets?
+90. How do you secure Docker images?
+91. How do you implement CI/CD for Docker?
+92. How do you deploy Docker containers to AWS?
+93. ECS vs Kubernetes?
+94. How does Docker integrate with EKS?
+95. How do you perform zero-downtime deployment?
+
+---
+
+# 🔥 Scenario-Based Docker Questions
+
+## 1. Spring Boot container immediately exits
+
+```text
+docker run myapp
+Container → EXITED
+```
+
+**What will you check?**
+
+```bash
+docker logs <container>
+docker inspect <container>
+```
+
+Check:
+
+* Application startup error
+* Wrong JAR
+* Java version
+* Environment variables
+* Database connection
+* Incorrect entrypoint
+
+---
+
+## 2. Spring Boot cannot connect to MySQL
+
+```text
+Spring Boot → MySQL ❌
+```
+
+Possible issue:
+
+```text
+jdbc:mysql://localhost:3306/app
+```
+
+Inside a container, `localhost` refers to the **Spring Boot container itself**, not the MySQL container.
+
+Use the Docker network/service name, for example:
+
+```text
+jdbc:mysql://mysql:3306/app
+```
+
+---
+
+## 3. Container works locally but fails in production
+
+Check:
+
+* Environment variables
+* Java version
+* Configuration
+* Network
+* Secrets
+* Ports
+* CPU/memory
+* External services
+* Database connectivity
+
+---
+
+## 4. Docker image is 1.5 GB
+
+**Question:** How would you reduce it?
+
+Discuss:
+
+* Multi-stage build
+* JRE instead of JDK
+* Smaller base image
+* `.dockerignore`
+* Remove unnecessary files
+* Layer optimization
+
+---
+
+## 5. Container keeps restarting
+
+Check:
+
+```bash
+docker ps -a
+docker logs <container>
+docker inspect <container>
+```
+
+Then investigate:
+
+* Application crash
+* OOM
+* Health check
+* Configuration
+* Dependency failure
+* Restart policy
+
+---
+
+## 6. Production container has a memory leak
+
+Questions:
+
+* How do you identify it?
+* Container metrics?
+* JVM heap?
+* GC?
+* Heap dump?
+* Application profiling?
+* Increase memory temporarily or fix root cause?
+
+---
+
+# ⭐ Docker + Java Interview Flow
+
+You should be able to explain this complete flow:
+
+```text
+Java Code
+   ↓
+Maven/Gradle
+   ↓
+Spring Boot JAR
+   ↓
+Dockerfile
+   ↓
+Docker Image
+   ↓
+ECR / Docker Registry
+   ↓
+ECS / Kubernetes
+   ↓
+Container
+   ↓
+Load Balancer
+   ↓
+Users
+```
+
+## 📌 0–5 Year Roadmap
+
+| Experience | Main Topics                                           |
+| ---------- | ----------------------------------------------------- |
+| **0–1**    | Docker, Image, Container, Dockerfile, Commands        |
+| **1–2**    | Dockerfile, Spring Boot, Networking, Volumes          |
+| **2–3**    | Compose, Multi-container applications, Microservices  |
+| **3–4**    | Optimization, Multi-stage builds, Security, Registry  |
+| **4–5**    | Production troubleshooting, CI/CD, ECS/Kubernetes, HA |
+
+### 🔥 For your 5+ year Java interview, master these first:
+
+**Docker fundamentals → Dockerfile → Image layers → Spring Boot containerization → Networking → Volumes → Docker Compose → Multi-stage builds → ECR → ECS/Kubernetes → Resource limits → Health checks → Security → CI/CD → Production troubleshooting.**
